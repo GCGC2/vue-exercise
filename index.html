@@ -9,18 +9,35 @@
 
 <body>
     <!-- <div id="app">
-        <div v-html="html"></div>
-        
+        <div v-if="show">亲爱的阿蔡</div>
+    </div> -->
+    <!-- <div id="app">
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
     </div> -->
 
-    <input type="text" />
-    <button>点击</button>
+
     <div id="app">
-        <div v-html="msg"></div>
+        <div v-if="Math.random() > 0.5">
+            阿蔡
+          </div>
+          <div v-else>
+            阿蔡不见了
+          </div>
+    
     </div>
 
 
-    
     <script src="./src/vue.js"></script>
     <script src="./demo.js"></script>
 </body>
