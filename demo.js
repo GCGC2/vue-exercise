@@ -1,10 +1,12 @@
 const vm = new Vue({
-    el:"#app",
-    data:{
-        msg:"亲爱的阿蔡"
-    }
+  el: '#app',
+  data: {
+    cFamily: ['阿蔡', '小蔡', '蔡娃']
+  }
 })
-// console.log(vm.data.msg);
-console.log(vm.msg);
-vm.msg = "阿蔡爱郭郭"
+// vm.cFamily[3] = '郭妹儿';
+
+// vm.cFamily.push("郭妹儿")
+
+vm.$set(vm.cFamily, 3, "小郭妹儿")
 
