@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div id="app">
+        <div v-if="show">亲爱的阿蔡</div>
+    </div> -->
+    <!-- <div id="app">
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+    </div> -->
+
+
+    <div id="app">
+        <div v-if="Math.random() > 0.5">
+            阿蔡
+          </div>
+          <div v-else>
+            阿蔡不见了
+          </div>
+    
+    </div>
+
+
+    <script src="./src/vue.js"></script>
+    <script src="./demo.js"></script>
+</body>
+
+</html>
