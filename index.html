@@ -2,60 +2,72 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+  <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
-    
-    <!-- <div id="app">
-        <ul>
-            <li v-for="person in persons">
-                {{ person }}
-            </li>
-        </ul>
-    </div> -->
+  <div id="app">
+    <!-- 类别列表区域 -->
+    <div 
+      class="goods" 
+      v-for="(goods,goodsIndex) in goodsList" 
+      :key="goods.id"
+    >
 
-    <!-- <ul id="app">
-        <template v-for="person in persons">
-          <li>{{ person }}</li>
-          <li>哈哈</li>
-        </template>
-      </ul> -->
-
-      <!-- 点击下移按钮,其对应数据下移 -->
-      <!-- <ul id="app">
-        <li v-for="(person, index) in persons">
-          {{ person }}
-          <input type="text">
-          <button @click="handleClick(index)">下移</button>
-        </li>
-      </ul> -->
-
-      <!-- <ul id="app">
-        <button @click="show = !show">{{ show ? '显示' : '隐藏'}}</button>
-        <input type="text" v-if="show" key="a" />
-        <input type="text" v-else key="b" />
-      </ul> -->
-
-      <!-- v-for和v-if一同使用 -->
-      <div id="app">
-        <ul>
-            <li
-              v-for="person in persons"
-              v-if="person.isActive"
-              :key="person.id"
-            >
-              {{ person.name }}
-            </li>
-          </ul>
+      <!-- 每个类别的标题 -->
+      <div class="title">
+        {{ goods.title }}：
       </div>
-      
-      
 
-    <script src="./src/vue.js"></script>
-    <script src="./demo.js"></script>
+      <!-- 类别种类 -->
+      <ul class="type-list">
+        <li 
+          class="type" 
+          :class="{active: typeIndex === goods.index}" 
+          v-for="(type, typeIndex) in goods.typeList" 
+          :key="type"
+          @click="addFilterHandle(typeIndex, goods, type, goodsIndex)"
+        >{{ type }}</li>
+      </ul>
+
+    </div>
+
+    <!-- 已筛选区域 -->
+    <div class="choose-type">
+      <div>已选条件：</div>
+      <span 
+        class="no-goods"
+        v-if="!showFilterGoods"
+        >暂时没有选择过滤条件</span>
+
+      <!-- 放置过滤条件 -->
+      <ul 
+        class="filter-list"
+        v-else=""
+        >
+        <li v-for="(goodsFilter, goodsFilterKey) in filterObj">
+          {{ goodsFilter }}
+          <span 
+            class="delete-goods"
+            @click="deleteFilterGoods(goodsFilterKey), changeShowFilter()"
+            >
+            <img src="./删除筛选项.png" alt="删除">
+          </span>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+
+
+
+
+  <script src="./demo.js"></script>
 </body>
 
 </html>
