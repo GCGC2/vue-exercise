@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <!-- <div id="app">
+        <ul>
+            <li v-for="person in persons">
+                {{ person }}
+            </li>
+        </ul>
+    </div> -->
+
+    <!-- <ul id="app">
+        <template v-for="person in persons">
+          <li>{{ person }}</li>
+          <li>哈哈</li>
+        </template>
+      </ul> -->
+
+      <!-- 点击下移按钮,其对应数据下移 -->
+      <!-- <ul id="app">
+        <li v-for="(person, index) in persons">
+          {{ person }}
+          <input type="text">
+          <button @click="handleClick(index)">下移</button>
+        </li>
+      </ul> -->
+
+      <!-- <ul id="app">
+        <button @click="show = !show">{{ show ? '显示' : '隐藏'}}</button>
+        <input type="text" v-if="show" key="a" />
+        <input type="text" v-else key="b" />
+      </ul> -->
+
+      <!-- v-for和v-if一同使用 -->
+      <div id="app">
+        <ul>
+            <li
+              v-for="person in persons"
+              v-if="person.isActive"
+              :key="person.id"
+            >
+              {{ person.name }}
+            </li>
+          </ul>
+      </div>
+      
+      
+
+    <script src="./src/vue.js"></script>
+    <script src="./demo.js"></script>
+</body>
+
+</html>
